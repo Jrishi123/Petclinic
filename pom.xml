@@ -571,6 +571,6 @@
         <url>http://20.0.152.86:8081/repository/maven-releases/</url>
     </repository>  
 
-    </repository> 
+    </repositories> 
          
 </project>
