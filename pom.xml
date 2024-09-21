@@ -561,6 +561,19 @@
                     <scope>runtime</scope>
                 </dependency>
             </dependencies>
+
+            <dependencies>
+        <!-- Other dependencies -->
+
+        <dependency>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.6</version>
+        </dependency>
+
+        <!-- Other dependencies -->
+    </dependencies>
+                 
         </profile>
    </profiles>
 
