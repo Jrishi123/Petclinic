@@ -309,6 +309,28 @@
         </dependency>
 
     </dependencies>
+    <dependencies>
+    <!-- Spring Boot dependencies -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <!-- Other dependencies -->
+    </dependencies>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>2.x.x</version> <!-- Make sure this is the correct version -->
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>repackage</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
 
     <!-- Maven plugin versions are mentioned in order to guarantee the build reproducibility in the long term -->
     <build>
