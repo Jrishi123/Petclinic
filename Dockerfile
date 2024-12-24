@@ -1,4 +1,4 @@
 FROM openjdk:8
 EXPOSE 8052
-COPY target/petclinic.jar /petclinic.jar
-ENTRYPOINT ["java","-jar","/petclinic.jar"]
+COPY target/petclinic.war /petclinic.war
+ENTRYPOINT ["java","-war","/petclinic.war"]
