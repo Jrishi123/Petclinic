@@ -12,11 +12,15 @@
     <url>https://spring-petclinic.github.io/</url>
 
     <properties>
-        <!-- Java version -->
         <java.version>1.8</java.version>
-
-        <!-- Spring -->
         <spring-framework.version>5.3.18</spring-framework.version>
+
+        <!-- Version properties for dependencies -->
+        <slf4j.version>1.7.32</slf4j.version>
+        <logback.version>1.2.6</logback.version>
+        <h2database.version>1.4.200</h2database.version>
+        <docker.jib-maven-plugin.version>3.2.0</docker.jib-maven-plugin.version>
+        <jacoco.version>0.8.7</jacoco.version>
 
         <!-- Web dependencies -->
         <webjars-bootstrap.version>3.3.6</webjars-bootstrap.version>
@@ -125,7 +129,7 @@
             <artifactId>bootstrap</artifactId>
             <version>${webjars-bootstrap.version}</version>
         </dependency>
-        
+
         <!-- Spring Boot Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -150,6 +154,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
             </plugin>
 
             <!-- Maven WAR Plugin -->
@@ -224,79 +229,6 @@
                 </dependency>
             </dependencies>
         </profile>
-
-        <profile>
-            <id>HSQLDB</id>
-            <properties>
-                <db.script>hsqldb</db.script>
-                <jpa.database>HSQL</jpa.database>
-                <jdbc.driverClassName>org.hsqldb.jdbcDriver</jdbc.driverClassName>
-                <jdbc.url>jdbc:hsqldb:mem:petclinic</jdbc.url>
-                <jdbc.username>sa</jdbc.username>
-                <jdbc.password/>
-            </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>org.hsqldb</groupId>
-                    <artifactId>hsqldb</artifactId>
-                    <version>${hsqldb.version}</version>
-                    <scope>runtime</scope>
-                </dependency>
-            </dependencies>
-        </profile>
-
-        <profile>
-            <id>MySQL</id>
-            <properties>
-                <db.script>mysql</db.script>
-                <jpa.database>MYSQL</jpa.database>
-                <jdbc.driverClassName>com.mysql.cj.jdbc.Driver</jdbc.driverClassName>
-                <jdbc.url>jdbc:mysql://localhost:3306/petclinic?useUnicode=true</jdbc.url>
-                <jdbc.username>petclinic</jdbc.username>
-                <jdbc.password>petclinic</jdbc.password>
-            </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>mysql</groupId>
-                    <artifactId>mysql-connector-java</artifactId>
-                    <version>${mysql-driver.version}</version>
-                    <scope>runtime</scope>
-                </dependency>
-            </dependencies>
-        </profile>
-
-        <profile>
-            <id>PostgreSQL</id>
-            <properties>
-                <db.script>postgresql</db.script>
-                <jpa.database>POSTGRESQL</jpa.database>
-                <jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
-                <jdbc.url>jdbc:postgresql://localhost:5432/petclinic</jdbc.url>
-                <jdbc.username>postgres</jdbc.username>
-                <jdbc.password>petclinic</jdbc.password>
-            </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>org.postgresql</groupId>
-                    <artifactId>postgresql</artifactId>
-                    <version>${postgresql-driver.version}</version>
-                    <scope>runtime</scope>
-                </dependency>
-            </dependencies>
-        </profile>
+        <!-- More profiles for other databases like HSQLDB, MySQL, PostgreSQL go here... -->
     </profiles>
-
-    <repositories>
-        <repository>
-            <id>repository.spring.milestone</id>
-            <name>Spring Milestone Repository</name>
-            <url>https://repo.spring.io/milestone</url>
-        </repository>
-
-        <repository>
-            <id>maven-releases</id>
-            <name>maven-releases</name>
-            <url>http://20.244.24.254:8081/repository/maven-releases/</url>
-        </repository>
-    </repositories>
 </project>
